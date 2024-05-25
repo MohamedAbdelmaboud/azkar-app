@@ -1,7 +1,6 @@
 # sebha2
 
-A new Flutter project.
-
+This is a simple azkar app i have made when i was beginner in my learning journy
 ## Getting Started
 
 This project is a starting point for a Flutter application.
