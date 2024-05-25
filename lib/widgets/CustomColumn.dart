@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:sebha/constants/colors.dart';
+import 'package:sebha/core/themes/app_colors.dart';
 
 class CustomColumn extends StatelessWidget {
   final String title;
@@ -32,8 +32,8 @@ class CustomColumn extends StatelessWidget {
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
                 colors: [
-                  MyColors.mainColor,
-                  MyColors.mainColor.withOpacity(0.7),
+                  AppColors.mainColor,
+                  AppColors.mainColor.withOpacity(0.7),
                 ],
               ),
               borderRadius: BorderRadius.circular(15),
@@ -88,9 +88,8 @@ class CustomColumn extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              progressColor: MyColors.mainColor,
-              backgroundColor:
-                  MyColors.mainColor.withOpacity(0.5),
+              progressColor: AppColors.mainColor,
+              backgroundColor: AppColors.mainColor.withOpacity(0.5),
               circularStrokeCap: CircularStrokeCap.round,
             ),
           ),
@@ -107,8 +106,7 @@ class CustomColumn extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: fun1,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:  MyColors.mainColor
-                            .withOpacity(0.5),
+                        backgroundColor: AppColors.mainColor.withOpacity(0.5),
                         //shadowColor: Colors.brown,
                         elevation: 10,
                         shape: RoundedRectangleBorder(
@@ -132,7 +130,7 @@ class CustomColumn extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: fun2,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: MyColors.mainColor,
+                      backgroundColor: AppColors.mainColor,
                       shadowColor: Colors.brown,
                       elevation: 10,
                       shape: RoundedRectangleBorder(

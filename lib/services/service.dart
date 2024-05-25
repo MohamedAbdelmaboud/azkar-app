@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:sebha/Models/alhusnaModel.dart';
+import 'package:sebha/Models/alhusna_model.dart';
 
 class Service {
   Future<List<HusnaModel>> loadJson() async {

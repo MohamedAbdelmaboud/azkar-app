@@ -11,7 +11,7 @@ class AzkarModel {
   }
 }
 
-class Array{
+class Array {
   int id;
   String text;
   int count;

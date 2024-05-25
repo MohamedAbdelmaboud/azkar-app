@@ -1,20 +1,21 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:sebha/componants/CustomInkWell.dart';
-import 'package:sebha/componants/custom_azkar_screen.dart';
-import 'package:sebha/constants/colors.dart';
-import 'package:sebha/screens/husnaScreen.dart';
-import '../services/azkarService.dart';
-import 'sebhaScreen.dart';
+import 'package:sebha/core/themes/app_colors.dart';
+import 'package:sebha/screens/husna_view.dart';
+import 'package:sebha/widgets/CustomInkWell.dart';
+import 'package:sebha/widgets/custom_azkar_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+import '../services/azkar_service.dart';
+import 'sebha_view.dart';
+
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeViewState extends State<HomeView> {
   final player = AudioPlayer();
   @override
   void initState() {
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text(
           'الأقسام الرئيسية',
           style: TextStyle(
-            color: MyColors.mainColor,
+            color: AppColors.mainColor,
             fontWeight: FontWeight.bold,
             shadows: [
               Shadow(
@@ -82,8 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
                   colors: [
-                    MyColors.mainColor,
-                    MyColors.mainColor.withOpacity(0.7),
+                    AppColors.mainColor,
+                    AppColors.mainColor.withOpacity(0.7),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(15),
@@ -126,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Sebha(),
+                      builder: (context) => const SebhaView(),
                     ));
               },
               text: "التسبيح",
@@ -180,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Husna(),
+                              builder: (context) => const HusnaView(),
                             ));
                       },
                       text: "أسماء الله الحسنى"),

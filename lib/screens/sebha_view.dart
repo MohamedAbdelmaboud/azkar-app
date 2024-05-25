@@ -1,17 +1,18 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sebha/componants/CustomColumn.dart';
+import 'package:sebha/widgets/CustomColumn.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../constants/colors.dart';
 
-class Sebha extends StatefulWidget {
-  const Sebha({super.key});
+import '../core/themes/app_colors.dart';
+
+class SebhaView extends StatefulWidget {
+  const SebhaView({super.key});
   @override
-  State<Sebha> createState() => _SebhaState();
+  State<SebhaView> createState() => _SebhaViewState();
 }
 
-class _SebhaState extends State<Sebha> {
+class _SebhaViewState extends State<SebhaView> {
   CustomColumn buildCustomColumn({
     required String title,
     required String description,
@@ -59,7 +60,7 @@ class _SebhaState extends State<Sebha> {
             'عدد التسبيحات الكلي',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: MyColors.mainColor,
+              color: AppColors.mainColor,
               fontFamily: "questv",
             ),
           ),
@@ -78,16 +79,16 @@ class _SebhaState extends State<Sebha> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(99),
                     side: const BorderSide(
-                        color: MyColors.gradientColor, width: 1.5)),
+                        color: AppColors.gradientColor, width: 1.5)),
                 onPressed: () {
                   Navigator.of(context).pop();
-                  total=0;
+                  total = 0;
                   savepref();
                 },
                 child: const Text(
                   'جديد',
                   style: TextStyle(
-                    color: MyColors.mainColor,
+                    color: AppColors.mainColor,
                     fontFamily: "questv",
                   ),
                 ),
@@ -110,14 +111,14 @@ class _SebhaState extends State<Sebha> {
           title: const Text(
             '🤎 جُزيتَ الجنة ',
             style: TextStyle(
-              color: MyColors.mainColor,
+              color: AppColors.mainColor,
               fontFamily: "questv",
             ),
           ),
           content: const Text(
             "و جـزاك اللـــه خيـر الجـزاء ونـور دربـك ",
             style: TextStyle(
-              color: MyColors.mainColor,
+              color: AppColors.mainColor,
               fontFamily: "questv",
             ),
           ),
@@ -135,7 +136,7 @@ class _SebhaState extends State<Sebha> {
               child: const Text(
                 'هيا لنفوز بمزيد من الحسنات',
                 style: TextStyle(
-                  color: MyColors.gradientColor,
+                  color: AppColors.gradientColor,
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                   fontFamily: "questv",
@@ -233,7 +234,7 @@ class _SebhaState extends State<Sebha> {
               },
               icon: const Icon(
                 Icons.arrow_back,
-                color: MyColors.mainColor,
+                color: AppColors.mainColor,
               )),
           actions: [
             Row(
@@ -272,7 +273,7 @@ class _SebhaState extends State<Sebha> {
           title: const Text(
             "التسبيح",
             style: TextStyle(
-              color: MyColors.mainColor,
+              color: AppColors.mainColor,
               fontWeight: FontWeight.bold,
               shadows: [
                 Shadow(

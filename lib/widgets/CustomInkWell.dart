@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sebha/constants/colors.dart';
+import 'package:sebha/core/themes/app_colors.dart';
 
 class CustomInkWell extends StatelessWidget {
   final String text;
@@ -12,7 +12,7 @@ class CustomInkWell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: InkWell(
         onTap: ontap,
         child: Container(
@@ -23,7 +23,7 @@ class CustomInkWell extends StatelessWidget {
                 offset: Offset(1, 3),
               ),
             ],
-            border: Border.all(color: MyColors.gradientColor, width: 0.5),
+            border: Border.all(color: AppColors.gradientColor, width: 0.5),
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
           ),
@@ -32,10 +32,10 @@ class CustomInkWell extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: Text(
-            textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
               text,
               style: const TextStyle(
-                color: MyColors.transliterationColor,
+                color: AppColors.transliterationColor,
                 fontFamily: "questv",
                 fontSize: 15,
               ),

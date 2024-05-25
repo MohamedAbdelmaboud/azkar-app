@@ -1,19 +1,18 @@
-
 import 'package:flutter/material.dart';
-import 'package:sebha/Models/alhusnaModel.dart';
+import 'package:sebha/Models/alhusna_model.dart';
 import 'package:sebha/services/service.dart';
 
-import '../componants/Customcontainer.dart';
+import '../widgets/Customcontainer.dart';
 
-class Husna extends StatefulWidget {
-  const Husna({super.key});
+class HusnaView extends StatefulWidget {
+  const HusnaView({super.key});
 
   @override
-  State<Husna> createState() => _HusnaState();
+  State<HusnaView> createState() => _HusnaViewState();
 }
 
-class _HusnaState extends State<Husna> {
- late List<HusnaModel> model=[];
+class _HusnaViewState extends State<HusnaView> {
+  late List<HusnaModel> model = [];
 
   @override
   void initState() {
@@ -58,7 +57,7 @@ class _HusnaState extends State<Husna> {
             mainAxisSpacing: 15,
             childAspectRatio: 0.75,
           ),
-          itemCount: model.length, 
+          itemCount: model.length,
           itemBuilder: (BuildContext context, int index) {
             return Customcontainer(
               meaning: model[index].meaning,

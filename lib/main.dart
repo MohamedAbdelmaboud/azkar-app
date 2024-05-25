@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:sebha/screens/splashScreen.dart';
-import 'screens/homeScreen.dart';
-import 'screens/husnaScreen.dart';
-import 'screens/sebhaScreen.dart';
+import 'package:sebha/core/routing/app_router.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      home: Splash(),
     );
   }
-} 
+}
 
 void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: MyApp(),
-  ));
+  runApp(const MyApp());
 }
