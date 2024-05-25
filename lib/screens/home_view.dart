@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:sebha/core/themes/app_colors.dart';
 import 'package:sebha/screens/husna_view.dart';
 import 'package:sebha/widgets/CustomInkWell.dart';
@@ -56,10 +57,11 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: const Color(0xffe2e0e1),
         centerTitle: true,
         title: const Text(
-          'الأقسام الرئيسية',
+          'مُســــــــــلم',
           style: TextStyle(
             color: AppColors.mainColor,
             fontWeight: FontWeight.bold,
+            fontFamily: 'Kufam',
             shadows: [
               Shadow(
                 color: Color.fromARGB(66, 61, 50, 82),
@@ -69,178 +71,182 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/home.jpg"),
-                fit: BoxFit.cover)),
+      body: Column(
+        children: [
+          const HomeContainer(),
+          const SizedBox(
+            height: 50,
+          ),
+          CustomInkWell(
+            ontap: () {
+              player.stop();
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SebhaView(),
+                  ));
+            },
+            text: "التسبيح",
+          ),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomInkWell(
+                    ontap: () {
+                      player.stop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CustomAzkar(
+                              itemCount: 30,
+                              startValue: 31,
+                              title: 'أذكار المساء',
+                              model: model,
+                            ),
+                          ));
+                    },
+                    text: "أذكار المساء"),
+                CustomInkWell(
+                    ontap: () {
+                      player.stop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CustomAzkar(
+                              model: model,
+                              itemCount: 31,
+                              startValue: 0,
+                              title: 'أذكار الصباح',
+                            ),
+                          ));
+                    },
+                    text: "أذكار الصباح")
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomInkWell(
+                    ontap: () {
+                      player.stop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HusnaView(),
+                          ));
+                    },
+                    text: "أسماء الله الحسنى"),
+                CustomInkWell(
+                    ontap: () {
+                      player.stop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CustomAzkar(
+                              model: model,
+                              itemCount: 8,
+                              startValue: 61,
+                              title: "الأذكار بعد الصلاة",
+                            ),
+                          ));
+                    },
+                    text: "الأذكار بعد الصلاة"),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomInkWell(
+                  ontap: () {
+                    player.stop();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CustomAzkar(
+                              model: model,
+                              itemCount: 1,
+                              startValue: 69,
+                              title: "دعاء صلاة الاستخارة"),
+                        ));
+                  },
+                  text: "دعاء صلاة الاستخارة",
+                ),
+                CustomInkWell(
+                  ontap: () {
+                    player.stop();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CustomAzkar(
+                              model: model,
+                              itemCount: 13,
+                              startValue: 70,
+                              title: "أذكار النوم"),
+                        ));
+                  },
+                  text: "أذكار النوم",
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HomeContainer extends StatelessWidget {
+  const HomeContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.bottomLeft,
+          end: Alignment.topRight,
+          colors: [
+            AppColors.mainColor,
+            AppColors.mainColor.withOpacity(0.7),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: const Padding(
+        padding: EdgeInsets.all(15.0),
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [
-                    AppColors.mainColor,
-                    AppColors.mainColor.withOpacity(0.7),
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              width: 350,
-              height: 120,
-              child: const Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "﷽",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "questv",
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    textAlign: TextAlign.center,
-                    "وَاذْكُر رَّبَّكَ إِذَا نَسِيتَ وَقُلْ عَسَىٰ أَن يَهْدِيَنِ رَبِّي لِأَقْرَبَ مِنْ هَٰذَا رَشَدًا",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "questv",
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
+            Text(
+              "﷽",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Kufam",
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(
-              height: 50,
-            ),
-            CustomInkWell(
-              ontap: () {
-                player.stop();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SebhaView(),
-                    ));
-              },
-              text: "التسبيح",
-            ),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomInkWell(
-                      ontap: () {
-                        player.stop();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CustomAzkar(
-                                itemCount: 30,
-                                startValue: 31,
-                                title: 'أذكار المساء',
-                                model: model,
-                              ),
-                            ));
-                      },
-                      text: "أذكار المساء"),
-                  CustomInkWell(
-                      ontap: () {
-                        player.stop();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CustomAzkar(
-                                model: model,
-                                itemCount: 31,
-                                startValue: 0,
-                                title: 'أذكار الصباح',
-                              ),
-                            ));
-                      },
-                      text: "أذكار الصباح")
-                ],
+            Gap(15),
+            Text(
+              textAlign: TextAlign.center,
+              "وَاذْكُر رَّبَّكَ إِذَا نَسِيتَ وَقُلْ عَسَىٰ أَن يَهْدِيَنِ رَبِّي لِأَقْرَبَ مِنْ هَٰذَا رَشَدًا",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Amiri",
+                fontSize: 13,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomInkWell(
-                      ontap: () {
-                        player.stop();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HusnaView(),
-                            ));
-                      },
-                      text: "أسماء الله الحسنى"),
-                  CustomInkWell(
-                      ontap: () {
-                        player.stop();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CustomAzkar(
-                                model: model,
-                                itemCount: 8,
-                                startValue: 61,
-                                title: "الأذكار بعد الصلاة",
-                              ),
-                            ));
-                      },
-                      text: "الأذكار بعد الصلاة"),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomInkWell(
-                    ontap: () {
-                      player.stop();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CustomAzkar(
-                                model: model,
-                                itemCount: 1,
-                                startValue: 69,
-                                title: "دعاء صلاة الاستخارة"),
-                          ));
-                    },
-                    text: "دعاء صلاة الاستخارة",
-                  ),
-                  CustomInkWell(
-                    ontap: () {
-                      player.stop();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CustomAzkar(
-                                model: model,
-                                itemCount: 13,
-                                startValue: 70,
-                                title: "أذكار النوم"),
-                          ));
-                    },
-                    text: "أذكار النوم",
-                  )
-                ],
-              ),
-            ),
+            Gap(15),
           ],
         ),
       ),

@@ -2,7 +2,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:sebha/screens/home_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sebha/core/routing/app_router.dart';
 
 import '../widgets/splash_view_body.dart';
 
@@ -17,12 +18,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     Timer(const Duration(milliseconds: 1000), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => const HomeView(),
-        ),
-      );
+      context.go(AppRouter.home);
     });
     super.initState();
   }
